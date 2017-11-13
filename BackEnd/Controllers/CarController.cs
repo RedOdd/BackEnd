@@ -38,8 +38,7 @@ namespace BackEnd.Controllers
         [Route("update")]
         public IActionResult Update([FromBody]Car car)
         {
-            _carManager.GetCarById(car.Id).Name = car.Name;
-            _carManager.GetCarById(car.Id).Price = car.Price;
+            _carManager.Update(car);
             return Ok(_carManager.GetCarById(car.Id));
         }
     }

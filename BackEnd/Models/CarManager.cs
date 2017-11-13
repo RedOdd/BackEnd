@@ -18,6 +18,18 @@ namespace BackEnd.Models
         {
             _cars.Add(car);
         }
+        public void Delete(Car car)
+        {
+            _cars.RemoveWhere(carTemp => carTemp.Id.Equals(car.Id));
+            _cars.Add(car);
+        }
+
+        public void Update(Car car)
+        {
+            Delete(car);
+            Add(car);
+        }
+
         public Car GetCarById(int id)
         {
             return _cars.SingleOrDefault(car => car.Id.Equals(id));
